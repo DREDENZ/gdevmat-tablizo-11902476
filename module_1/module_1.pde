@@ -13,10 +13,10 @@ void draw()
    background(130); // set background color (130 = light gray; 0 = black) of the whole window
    
    drawCartesianPlane();
-   //drawQuadraticFunction();
-   ///drawLinearFunction();
+   drawQuadraticFunction();
+   drawLinearFunction();
    drawSineWave();
-   //drawMovingSineWave();
+   drawMovingSineWave();
 }
 
 void drawCartesianPlane()
