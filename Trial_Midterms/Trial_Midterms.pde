@@ -10,7 +10,7 @@ void setup()
   camera(0, 0, Window.eyeZ, 0, 0, 0, 0, -1, 0);
   size(1080,720, P3D);
   
-  //frameRate(1);
+  frameRate(1);
   
   //blackholeLocate();
 }
@@ -20,27 +20,27 @@ void draw()
   background(0);
   
   // [Display located blackhole]
-  //blackhole.renderBlackhole();
-    
+  blackhole.renderBlackhole();
+  
   for(int i = 0; i < matters.length; i++)
   {
     // [Locate then Generate matter]
     locateMatter();
+    
+    // [Spawn matter]
     matters[i].renderMatter();
-  }
-  
-  // [Attract Matter towards blackhole]
-  //attract();
-  
-  // [Flush screen after number of max limit]
-  int maxLimit = 200;
-  int frameLimit = maxLimit * limitCounter;
-  frame++;
-  if (frame == frameLimit)
-  {
-    background(0);
-    //blackholeLocate();
-    limitCounter++;
+    
+    // [Attract Matter towards blackhole]
+    attract();
+    
+    // [Flush screen after number of max limit]
+    if (blackhole.position == matters[i].position)
+    {
+      background(0);
+      //locateMatter();
+      //blackholeLocate();
+    }
+    
   }
   
 }
@@ -58,24 +58,17 @@ void blackholeLocate()
 
 void locateMatter()
 {
-  // [Randomize Matter Location]
-  //float matterPosX = 100 * randomGaussian() + 0;
-  //float matterPosY = 100* randomGaussian() + 0;
-  //float gaussianNum = 10 * randomGaussian() + 0;
-  //PVector matterPos = PVector.mult(matter.position, gaussianNum);
-  
-  
   // [Display Matter]
   for(int i = 0; i < matters.length; i++)
   {
     // [Insert Matter into Array]
     matters[i] = matter;
     
-    // [Locate Matter]
-    //matters[i].position.x = matterPos.x;
-    //matters[i].position.y = matterPos.y;
-    matters[i].position.x = randomGaussian();
-    matters[i].position.y = randomGaussian();
+    // [Randomize Matter Location & Locate Matter]
+    float std = 300;
+    float mean = 0;
+    matters[i].position.x = std * randomGaussian() + mean;
+    matters[i].position.y = std * randomGaussian() + mean;
     
     // [Render Matter]
     //matters[i].renderMatter();
