@@ -73,15 +73,4 @@ void draw()
     frame = 0;
     reset();
   }
-  
-  //for(int i = 0; i < matters.length; i++)
-  //{
-  //  if(matters[i].position == blackhole.position)
-  //  {
-  //    color black = color(0, 0, 0);
-  //    matters[i].colorize = black;
-  //    reset();
-  //  }
-  //}
-  
 }
