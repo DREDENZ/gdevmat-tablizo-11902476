@@ -1,0 +1,13 @@
+public static class Window
+{
+  public static int windowWidth = 1280; // has to be same as size in void setup()
+  public static int windowHeight = 720; // has to be same as size in void setup()
+  public static int w = windowWidth/2;
+  public static int h = windowHeight/2;
+  public static int top = h;
+  public static int bottom = -h;
+  public static int left = -w;
+  public static int right = w;
+  public static float eyeZ = -(windowHeight/2.0)/tan(PI*30.0/180.0); // for camera function
+  
+}
