@@ -15,7 +15,7 @@ void draw()
   background(80);
   for(int i = 1; i < myWalkers.length; i++)
   {
-    myWalkers[i].render();
+    myWalkers[10-i].render();
     myWalkers[i].update();
     myWalkers[i].applyForce(wind);
     myWalkers[i].applyForce(gravity);
